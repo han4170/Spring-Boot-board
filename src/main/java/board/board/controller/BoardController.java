@@ -27,7 +27,7 @@ public class BoardController {
 	
 	@RequestMapping("/board/openBoardList.do")
 	public ModelAndView openBoardList() throws Exception{
-		ModelAndView mv = new ModelAndView("/board/boardList");
+		ModelAndView mv = new ModelAndView("./board/boardList");
 		
 		List<BoardDto> list = boardService.selectBoardList();
 		mv.addObject("list", list);
@@ -37,18 +37,18 @@ public class BoardController {
 	
 	@RequestMapping("/board/openBoardWrite.do")
 	public String openBoardWrite() throws Exception{
-		return "/board/boardWrite";
+		return "./board/boardWrite";
 	}
 	
 	@RequestMapping("/board/insertBoard.do")
 	public String insertBoard(BoardDto board, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception{
 		boardService.insertBoard(board, multipartHttpServletRequest);
-		return "redirect:/board/openBoardList.do";
+		return "redirect:./board/openBoardList.do";
 	}
 	
 	@RequestMapping("/board/openBoardDetail.do")
 	public ModelAndView openBoardDetail(@RequestParam int boardIdx) throws Exception{
-		ModelAndView mv = new ModelAndView("/board/boardDetail");
+		ModelAndView mv = new ModelAndView("./board/boardDetail");
 		
 		BoardDto board = boardService.selectBoardDetail(boardIdx);
 		mv.addObject("board", board);
@@ -59,13 +59,13 @@ public class BoardController {
 	@RequestMapping("/board/updateBoard.do")
 	public String updateBoard(BoardDto board) throws Exception{
 		boardService.updateBoard(board);
-		return "redirect:/board/openBoardList.do";
+		return "redirect:./board/openBoardList.do";
 	}
 	
 	@RequestMapping("/board/deleteBoard.do")
 	public String deleteBoard(int boardIdx) throws Exception{
 		boardService.deleteBoard(boardIdx);
-		return "redirect:/board/openBoardList.do";
+		return "redirect:./board/openBoardList.do";
 	}
 	
 	@RequestMapping("/board/downloadBoardFile.do")
