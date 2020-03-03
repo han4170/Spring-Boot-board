@@ -28,7 +28,7 @@ public class JpaBoardController {
 	
 	@RequestMapping(value="/jpa/board", method=RequestMethod.GET)
 	public ModelAndView openBoardList(ModelMap model) throws Exception{
-		ModelAndView mv = new ModelAndView("/board/jpaBoardList");
+		ModelAndView mv = new ModelAndView("./board/jpaBoardList");
 		
 		List<BoardEntity> list = jpaBoardService.selectBoardList();
 		mv.addObject("list", list);
@@ -38,7 +38,7 @@ public class JpaBoardController {
 	
 	@RequestMapping(value="/jpa/board/write", method=RequestMethod.GET)
 	public String openBoardWrite() throws Exception{
-		return "/board/jpaBoardWrite";
+		return "./board/jpaBoardWrite";
 	}
 	
 	@RequestMapping(value="/jpa/board/write", method=RequestMethod.POST)
@@ -49,7 +49,7 @@ public class JpaBoardController {
 	
 	@RequestMapping(value="/jpa/board/{boardIdx}", method=RequestMethod.GET)
 	public ModelAndView openBoardDetail(@PathVariable("boardIdx") int boardIdx) throws Exception{
-		ModelAndView mv = new ModelAndView("/board/jpaBoardDetail");
+		ModelAndView mv = new ModelAndView("./board/jpaBoardDetail");
 		
 		BoardEntity board = jpaBoardService.selectBoardDetail(boardIdx);
 		mv.addObject("board", board);
