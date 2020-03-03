@@ -29,7 +29,7 @@ public class RestBoardController {
 	
 	@RequestMapping(value="/board", method=RequestMethod.GET)
 	public ModelAndView openBoardList() throws Exception{
-		ModelAndView mv = new ModelAndView("/board/restBoardList");
+		ModelAndView mv = new ModelAndView("./board/restBoardList");
 		
 		List<BoardDto> list = boardService.selectBoardList();
 		mv.addObject("list", list);
@@ -39,7 +39,7 @@ public class RestBoardController {
 	
 	@RequestMapping(value="/board/write", method=RequestMethod.GET)
 	public String openBoardWrite() throws Exception{
-		return "/board/restBoardWrite";
+		return "./board/restBoardWrite";
 	}
 	
 	@RequestMapping(value="/board/write", method=RequestMethod.POST)
@@ -50,7 +50,7 @@ public class RestBoardController {
 	
 	@RequestMapping(value="/board/{boardIdx}", method=RequestMethod.GET)
 	public ModelAndView openBoardDetail(@PathVariable("boardIdx") int boardIdx, ModelMap model) throws Exception{
-		ModelAndView mv = new ModelAndView("/board/restBoardDetail");
+		ModelAndView mv = new ModelAndView("./board/restBoardDetail");
 		
 		BoardDto board = boardService.selectBoardDetail(boardIdx);
 		mv.addObject("board", board);
