@@ -1,0 +1,7 @@
+spring.datasource.hikari.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.hikari.jdbc-url: jdbc:mysql://10.0.0.23:3306/leaguedb?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+spring.datasource.hikari.username=hanu
+spring.datasource.hikari.password=league1102
+spring.datasource.hikari.connection-test-query=SELECT 1
+
+mybatis.configuration.map-underscore-to-camel-case=true
