@@ -22,7 +22,7 @@ public class FileUtils {
 		if(ObjectUtils.isEmpty(multipartHttpServletRequest)){
 			return null;
 		}
-		 
+		
 		List<BoardFileDto> fileList = new ArrayList<>();
 		
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd"); 
