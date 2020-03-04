@@ -42,6 +42,8 @@ public class FileUtils {
 			for (MultipartFile multipartFile : list){
 				if(multipartFile.isEmpty() == false){
 					contentType = multipartFile.getContentType();
+					int pos = multipartFile.getOriginalFilename().lastIndexOf( "." );
+					System.out.println(" multipartFile.getOriginalFilename() :"+multipartFile.getOriginalFilename().substring( pos + 1 ));
 					if(ObjectUtils.isEmpty(contentType)){
 						break;
 					}
@@ -56,7 +58,8 @@ public class FileUtils {
 							originalFileExtension = ".gif";
 						}
 						else{
-							break;
+							originalFileExtension = "."+multipartFile.getOriginalFilename().substring( pos + 1 );
+							//break;
 						}
 					}
 					
