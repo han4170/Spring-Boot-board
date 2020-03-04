@@ -27,7 +27,7 @@ public class FileUtils {
 		
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd"); 
     	ZonedDateTime current = ZonedDateTime.now();
-    	String path = "images/"+current.format(format);
+    	String path = "upload_files/"+current.format(format);
     	File file = new File(path);
 		if(file.exists() == false){
 			file.mkdirs();
